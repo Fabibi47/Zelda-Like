@@ -19,12 +19,18 @@ public class PlayerBehavior : MonoBehaviour
     {
         var playerMap = inputAction.FindActionMap("Player");
         playerMap.FindAction("Interact").started += Interract;
-        playerMap.FindAction("Move").started += Move;
+        playerMap.FindAction("Move").performed += Move;
+        playerMap.FindAction("Move").canceled += StopMove;
     }
 
     void Move(InputAction.CallbackContext obj)
     {
         dir = obj.ReadValue<Vector2>();
+    }
+
+    void StopMove(InputAction.CallbackContext obj)
+    {
+        dir = new Vector2(0, 0);
     }
 
     void Interract(InputAction.CallbackContext obj)
@@ -36,6 +42,11 @@ public class PlayerBehavior : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        RB2D.linearVelocity = dir.normalized * speed;
     }
 
     private void OnTriggerEnter(Collider other)

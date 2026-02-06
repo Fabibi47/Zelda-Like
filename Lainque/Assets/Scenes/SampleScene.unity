@@ -10370,7 +10370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
   health: 3
   maxHealth: 3
-  speed: 0
+  speed: 5
   dir: {x: 0, y: 0}
   inputAction: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   RB2D: {fileID: 923137941}
