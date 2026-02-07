@@ -46,7 +46,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RB2D.linearVelocity = dir.normalized * speed;
+        RB2D.linearVelocity = dir * speed;
     }
 
     private void OnTriggerEnter(Collider other)
