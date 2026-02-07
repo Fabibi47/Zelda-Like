@@ -10266,7 +10266,7 @@ GameObject:
   - component: {fileID: 923137942}
   - component: {fileID: 923137941}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10372,7 +10372,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &923137942
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10433,7 +10433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
   health: 3
   maxHealth: 3
-  speed: 250
+  speed: 5
   dir: {x: 0, y: 0}
   inputAction: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   RB2D: {fileID: 923137941}
