@@ -194,7 +194,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.017185688, y: -0.08593178}
+  m_Offset: {x: -0.017186165, y: -0.17234051}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -204,7 +204,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.7905746, y: 1.5843365}
+  m_Size: {x: 2.6354604, y: 2.486829}
   m_EdgeRadius: 0
 --- !u!61 &161152932
 BoxCollider2D:
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d549a8af6ea74ab5d6d269fc25dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chest
-  textObject: {fileID: 161152929}
+  textObject: {fileID: 1776635598}
   content: {fileID: 0}
   data: {fileID: 11400000, guid: c07f416a1e7bd0f41af9d1103c97054a, type: 2}
 --- !u!50 &161152935
@@ -533,7 +533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &268371855
 Transform:
   m_ObjectHideFlags: 0
@@ -22418,7 +22418,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776635598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 120}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

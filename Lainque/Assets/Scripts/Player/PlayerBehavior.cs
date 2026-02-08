@@ -95,4 +95,13 @@ public class PlayerBehavior : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Chest"))
+        {
+            other.GetComponent<Chest>().DeactivateText();
+            triggerObject = null;
+        }
+    }
 }
