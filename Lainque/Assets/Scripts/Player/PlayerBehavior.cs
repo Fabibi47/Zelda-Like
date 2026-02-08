@@ -68,7 +68,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void Interract(InputAction.CallbackContext obj)
     {
-        triggerObject.GetComponent<Interractable>().OnInterract();
+        triggerObject.GetComponent<Chest>().OnInterract();
     }
 
     // Update is called once per frame
