@@ -1,7 +1,6 @@
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -76,6 +75,10 @@ public class PlayerBehavior : MonoBehaviour
     void Update()
     {
         HealthUI.GetComponent<RectTransform>().sizeDelta = new Vector2(health * 50, 50);
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("LoseMenu");
+        }
     }
 
     private void FixedUpdate()
