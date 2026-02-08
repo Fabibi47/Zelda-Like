@@ -5,6 +5,7 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    public bool isRanged = false;
     public int health;
     public int maxHealth;
     public int speed;
@@ -13,6 +14,8 @@ public class PlayerBehavior : MonoBehaviour
     public InputActionAsset inputAction;
     public Rigidbody2D RB2D;
 
+    public SwordAttack SwordObject;
+    public BowAttack BowObject;
     public GameObject triggerObject;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +24,34 @@ public class PlayerBehavior : MonoBehaviour
         playerMap.FindAction("Interact").started += Interract;
         playerMap.FindAction("Move").performed += Move;
         playerMap.FindAction("Move").canceled += StopMove;
+        playerMap.FindAction("Attack").performed += Attack;
+        playerMap.FindAction("Switch").performed += Switch;
+    }
+
+    void Switch(InputAction.CallbackContext obj)
+    {
+        if (isRanged)
+        {
+            isRanged = false;
+            SwordObject.gameObject.SetActive(true);
+            BowObject.gameObject.SetActive(false);
+        } else
+        {
+            isRanged = true;
+            BowObject.gameObject.SetActive(true);
+            SwordObject.gameObject.SetActive(false);
+        }
+    }
+
+    void Attack(InputAction.CallbackContext obj)
+    {
+        if (isRanged)
+        {
+            BowObject.Attack();
+        } else
+        {
+            SwordObject.Attack();
+        }
     }
 
     void Move(InputAction.CallbackContext obj)
@@ -46,7 +77,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RB2D.linearVelocity = dir * speed;
+        RB2D.linearVelocity = dir * speed * Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
