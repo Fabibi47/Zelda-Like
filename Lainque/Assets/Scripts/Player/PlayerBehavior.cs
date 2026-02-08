@@ -18,6 +18,7 @@ public class PlayerBehavior : MonoBehaviour
     public BowAttack BowObject;
     public GameObject triggerObject;
     public GameObject WeaponObject;
+    public GameObject HealthUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -74,7 +75,7 @@ public class PlayerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        HealthUI.GetComponent<RectTransform>().sizeDelta = new Vector2(health * 50, 50);
     }
 
     private void FixedUpdate()
@@ -88,9 +89,6 @@ public class PlayerBehavior : MonoBehaviour
         {
             other.GetComponent<Chest>().ActivateText();
             triggerObject = other.gameObject;
-        } else if (other.gameObject.CompareTag("Ennemy"))
-        {
-            other.GetComponent<EnnemyBehavior>().playerTransform = transform;
         } else if (other.gameObject.CompareTag("EnnemyProjectile"))
         {
             health -= other.GetComponent<Projectile>().damage;
