@@ -7,6 +7,7 @@ TagManager:
   - Weapon
   - EnnemyProjectile
   - Chest
+  - AllyProjectile
   layers:
   - Default
   - TransparentFX
