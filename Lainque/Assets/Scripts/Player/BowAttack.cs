@@ -6,6 +6,6 @@ public class BowAttack : MonoBehaviour
 
     public void Attack()
     {
-        Instantiate(arrow, transform);
+        Instantiate(arrow, gameObject.GetComponentInParent<Transform>());
     }
 }

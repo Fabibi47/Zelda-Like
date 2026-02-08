@@ -77,14 +77,16 @@ public class EnnemyBehavior : MonoBehaviour
             hp -= collision.GetComponent<SwordAttack>().damage;
             if (hp <= 0)
             {
-                Loot();
+                Destroy(gameObject);
+            }
+        } else if (collision.CompareTag("AllyProjectile"))
+        {
+            hp -= collision.gameObject.GetComponentInParent<Projectile>().damage;
+            Destroy(collision.gameObject);
+            if (hp <= 0)
+            {
                 Destroy(gameObject);
             }
         }
-    }
-
-    void Loot()
-    {
-
     }
 }
