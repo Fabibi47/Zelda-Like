@@ -17,6 +17,8 @@ public class PlayerBehavior : MonoBehaviour
     public SwordAttack SwordObject;
     public BowAttack BowObject;
     public GameObject triggerObject;
+    public GameObject WeaponObject;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,11 +82,19 @@ public class PlayerBehavior : MonoBehaviour
         RB2D.linearVelocity = dir * speed * Time.fixedDeltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("DamageZone"))
+        if (other.gameObject.CompareTag("Chest"))
         {
+            other.GetComponent<Chest>().ActivateText();
             triggerObject = other.gameObject;
+        } else if (other.gameObject.CompareTag("Ennemy"))
+        {
+            other.GetComponent<EnnemyBehavior>().playerTransform = transform;
+        } else if (other.gameObject.CompareTag("EnnemyProjectile"))
+        {
+            health -= other.GetComponent<Projectile>().damage;
+            Destroy(other.gameObject);
         }
     }
 }
